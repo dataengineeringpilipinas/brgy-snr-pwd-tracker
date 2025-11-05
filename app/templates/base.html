@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Barangay Senior & PWD Support Tracker{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#6B7280',
+                        accent: '#000000',
+                        danger: '#000000'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'hand': ['Kalam', 'cursive', 'system-ui']
+                    }
+                }
+            }
+        }
+    </script>
+    {% block head %}{% endblock %}
+</head>
+<body class="h-full bg-gray-50">
+    <div class="min-h-full">
+        <!-- Navigation -->
+        <nav class="bg-white border-b-2 border-black">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <a href="/" class="text-2xl font-hand font-bold text-black flex items-center">
+                            <i class="fas fa-heart mr-2 text-black"></i>
+                            Senior & PWD Tracker
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <a href="/" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-home mr-1"></i><span class="hidden sm:inline">Dashboard</span>
+                        </a>
+                        <a href="/seniors" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-user-tie mr-1"></i><span class="hidden sm:inline">Seniors</span>
+                        </a>
+                        <a href="/pwds" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-wheelchair mr-1"></i><span class="hidden sm:inline">PWDs</span>
+                        </a>
+                        <a href="/benefits" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-gift mr-1"></i><span class="hidden sm:inline">Benefits</span>
+                        </a>
+                        <a href="/visits" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-calendar-check mr-1"></i><span class="hidden sm:inline">Visits</span>
+                        </a>
+                        <a href="/assistance-drives" class="text-black hover:text-gray-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium font-hand">
+                            <i class="fas fa-hands-helping mr-1"></i><span class="hidden sm:inline">Drives</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t-2 border-black py-8 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4">
+                    <div class="text-sm text-gray-600 font-sans">
+                        <p>Barangay Senior & PWD Support Tracker</p>
+                    </div>
+                    <div class="text-sm text-black font-hand">
+                        <p>A <a href="https://vibecamp.au/" target="_blank" class="text-black hover:underline font-bold">Vibecamp</a> Creation</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+

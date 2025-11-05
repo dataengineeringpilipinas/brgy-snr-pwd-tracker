@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Senior & PWD Tracker{% endblock %}
+
+{% block content %}
+<div class="bg-white py-8 sm:py-12">
+    <div class="text-center mb-8 sm:mb-12">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-hand font-bold text-black mb-4">
+            Dashboard
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 font-sans">
+            Overview of Senior Citizens and PWD Support Activities
+        </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <!-- Seniors Card -->
+        <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow duration-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg sm:text-xl font-hand font-bold text-black">
+                    <i class="fas fa-user-tie mr-2 text-black"></i>
+                    Senior Citizens
+                </h3>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Total:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ total_seniors }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Active:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ active_seniors }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PWDs Card -->
+        <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow duration-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg sm:text-xl font-hand font-bold text-black">
+                    <i class="fas fa-wheelchair mr-2 text-black"></i>
+                    PWDs
+                </h3>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Total:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ total_pwds }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Active:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ active_pwds }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Card -->
+        <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow duration-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg sm:text-xl font-hand font-bold text-black">
+                    <i class="fas fa-gift mr-2 text-black"></i>
+                    Benefits
+                </h3>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Total:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ total_benefits }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Pending:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ pending_benefits }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visits Card -->
+        <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow duration-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg sm:text-xl font-hand font-bold text-black">
+                    <i class="fas fa-calendar-check mr-2 text-black"></i>
+                    Visits
+                </h3>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Total:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ total_visits }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm sm:text-base text-gray-600 font-sans">Scheduled:</span>
+                    <span class="text-lg sm:text-xl font-bold text-black font-sans">{{ scheduled_visits }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6 mb-8 sm:mb-12">
+        <h2 class="text-xl sm:text-2xl font-hand font-bold text-black mb-4 sm:mb-6">
+            <i class="fas fa-bolt mr-2 text-black"></i>
+            Quick Actions
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="/seniors" class="bg-black text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors duration-200 font-hand font-bold text-base sm:text-lg text-center">
+                <i class="fas fa-plus mr-2"></i>
+                Add Senior
+            </a>
+            <a href="/pwds" class="bg-black text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors duration-200 font-hand font-bold text-base sm:text-lg text-center">
+                <i class="fas fa-plus mr-2"></i>
+                Add PWD
+            </a>
+            <a href="/benefits" class="bg-black text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors duration-200 font-hand font-bold text-base sm:text-lg text-center">
+                <i class="fas fa-gift mr-2"></i>
+                Record Benefit
+            </a>
+            <a href="/visits" class="bg-black text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors duration-200 font-hand font-bold text-base sm:text-lg text-center">
+                <i class="fas fa-calendar-plus mr-2"></i>
+                Schedule Visit
+            </a>
+        </div>
+    </div>
+
+    <!-- Assistance Drives -->
+    <div class="bg-white border-2 border-black rounded-lg shadow-md p-4 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
+            <h2 class="text-xl sm:text-2xl font-hand font-bold text-black">
+                <i class="fas fa-hands-helping mr-2 text-black"></i>
+                Assistance Drives
+            </h2>
+            <span class="px-3 py-1 bg-black text-white text-xs sm:text-sm rounded-full self-start sm:self-auto font-sans">
+                {{ total_drives }} Total • {{ ongoing_drives }} Ongoing
+            </span>
+        </div>
+        <a href="/assistance-drives" class="text-black hover:text-gray-600 font-hand font-medium">
+            View all assistance drives →
+        </a>
+    </div>
+</div>
+{% endblock %}
+
